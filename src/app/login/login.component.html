@@ -1,0 +1,63 @@
+<body class="hold-transition login-page">
+<div class="login-box">
+<div class="login-logo">
+<b>Login</b>
+</div>
+
+<div class="card">
+<div class="card-body login-card-body">
+<p class="login-box-msg">Connectez-vous pour accéder à votre espace</p>
+<form>
+<div class="input-group mb-3">
+<input type="text" class="form-control" placeholder="Identifiant" name="login" [(ngModel)]="login">
+<div class="input-group-append">
+<div class="input-group-text">
+<span class="fas fa-user"></span>
+</div>
+</div>
+</div>
+<div class="input-group mb-3">
+<input type="password" class="form-control" placeholder="Mot de passe" name="pass" [(ngModel)]="password">
+<div class="input-group-append">
+<div class="input-group-text">
+<span class="fas fa-lock"></span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-7">
+<div class="icheck-primary">
+<input type="checkbox" id="remember">
+<label for="remember">
+Se souvenir de moi
+</label>
+</div>
+</div>
+
+<div class="col-5">
+<button type="submit" class="btn btn-primary btn-block" (click)="handleLogin()">Se connecter</button>
+</div>
+
+</div>
+</form>
+<div class="social-auth-links text-center mb-3">
+<p>- OU -</p>
+<a href="#" class="btn btn-block btn-primary">
+<i class="fab fa-facebook mr-2"></i> Se connecter via Facebook
+</a>
+<a href="#" class="btn btn-block btn-danger">
+<i class="fab fa-google-plus mr-2"></i> Se connecter via Google+
+</a>
+</div>
+
+<p class="mb-1">
+<a href="#">Mot de passe oublié</a>
+</p>
+<p class="mb-0">
+<a href="/inscription" class="text-center">Créer un compte</a>
+</p>
+</div>
+
+</div>
+</div>
+</body>
