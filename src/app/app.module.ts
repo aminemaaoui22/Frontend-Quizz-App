@@ -14,6 +14,8 @@ import { PartiesComponent } from './parties/parties.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewPartieComponent } from './new-partie/new-partie.component';
 import { ToastrModule } from 'ngx-toastr';
+import { QuestionsComponent } from './questions/questions.component';
+import { QuestionsSocketComponent } from './questions-socket/questions-socket.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     NavComponent,
     PartiesComponent,
-    NewPartieComponent
+    NewPartieComponent,
+    QuestionsComponent,
+    QuestionsSocketComponent
   ],
   imports: [
     BrowserModule,
