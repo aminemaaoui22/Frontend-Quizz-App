@@ -5,6 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -17,7 +18,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

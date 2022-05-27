@@ -12,7 +12,7 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 export class WebSocketService {
 
 
-  gameId: string = "276b171b-ff47-42af-ba71-4a5d7f8be49f";
+  gameId!: string;
 
   constructor() {}
 
@@ -21,12 +21,13 @@ export class WebSocketService {
   public connect(url: string): AnonymousSubject<MessageEvent> {
     if (!this.subject) {
       this.subject = this.create(url);
-      console.log("Successfully connected! " + url);
+      console.log(`Successfully connected!  ${url}`);
     }
     return this.subject;
   }
 
   public create(url: string): AnonymousSubject<MessageEvent>  {
+    console.log(`url =  ${url}`)
     let ws = new WebSocket(url);
     let observable = new Observable(
       (obs: Rx.Observer<MessageEvent>) => {
@@ -47,7 +48,6 @@ export class WebSocketService {
     };
     return new AnonymousSubject<MessageEvent>(observer, observable);
   }
-
   
 
 }

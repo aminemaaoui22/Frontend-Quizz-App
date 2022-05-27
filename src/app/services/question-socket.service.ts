@@ -9,20 +9,19 @@ import { SOCKET_URL } from '../app.constants';
 })
 export class QuestionSocketService {
 
-  idGame: string = "c5f7fd7e-b847-4aca-a75c-0b22d09fc36d";
+  idGame!: string;
 
   public question?: Subject<Question>
 
   constructor(
     private webSocketService: WebSocketService
   ) { 
-    console.log(`${SOCKET_URL}/${this.idGame}`);
+    console.log(` socket url = ${SOCKET_URL}`);
     this.question = <Subject<Question>> webSocketService
-        .connect(`${SOCKET_URL}/${this.idGame}`)
+        .connect(`${SOCKET_URL}`)
         .pipe(
           map(
             (response: MessageEvent): Question => {
-              console.log('question jeeeet');
             let data = JSON.parse(response.data);
             return data;
           }

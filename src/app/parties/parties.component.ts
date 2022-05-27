@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GamesService } from '../services/games.service';
+import { setURL } from '../app.constants';
 
 
 @Component({
@@ -34,12 +35,13 @@ export class PartiesComponent implements OnInit {
 
   handleJoin(id: string) {
     let exist: Boolean;
-    this.gamesService.doesExist("72e6be41-edbf-4e12-a72d-6c4574daed9c").subscribe(
+    this.gamesService.doesExist(id).subscribe(
       res => {
-        this.gamesService.getOneGame("72e6be41-edbf-4e12-a72d-6c4574daed9c").subscribe(
+        this.gamesService.getOneGame(id).subscribe(
           {
             next: (res) => {
-              //traitement pour rejoindre game
+              setURL(id);
+              this.router.navigate(['/questions'], {queryParams:{GameToJoin: id}})
               console.log("join game " + id)
             },
             error: (err) => {

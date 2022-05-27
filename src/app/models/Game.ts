@@ -2,8 +2,8 @@ export class Game {
     id!: string;
     theme!: string;
     players!: {
-        current: Number;
-        max: Number
+        current: number;
+        max: number
     }
     isActive!: boolean;
     owner!: string;

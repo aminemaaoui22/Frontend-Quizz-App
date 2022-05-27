@@ -1,0 +1,82 @@
+.example-card {
+    /* max-width: 400px; */
+    width: 90%;
+    margin-top: 1%;
+    border: 1px solid #ab0303;
+  }
+  
+  .example-header-image {
+    background-image: url('../../assets/img/clock.png');
+    background-size: cover;
+  }
+
+  .announcement {
+      font-size: 18px;
+  }
+
+  .example-card-stats {
+    width: 95%;
+    top: 50%;
+  }
+  
+  .example-header-image-stats {
+    background-image: url('../../assets/img/stats.png');
+    background-size: cover;
+  }
+
+  table {
+      width: 100%;
+  }
+
+  /* Answers Button */
+
+.myButton {
+	/* background: rgb(236,236,236);
+    background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgba(148,187,233,1) 100%); */
+	border-color: #2196F3;
+    color: dodgerblue;
+    border-radius:5px;
+	/* display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold; */
+	padding:11px 23px;
+    max-width: 30%;
+    margin: auto;
+}
+ .myButton:hover {
+	background: #2196F3;
+    color: white;
+}
+
+
+
+/* Question css */
+
+.date { 
+    background: #fe921f; 
+    color: #ffffff; 
+    display: inline-block; 
+    font-family: 'Lato', sans-serif; 
+    font-size: 12px; 
+    font-weight: bold; 
+    line-height: 12px; 
+    letter-spacing: 1px; 
+    margin: 0 0 30px; 
+    padding: 10px 15px 8px; 
+    text-transform: uppercase; 
+}
+
+.qst { 
+    color: #181818; 
+    font-size: 20px; 
+    font-family: 'Signika', sans-serif; 
+    padding-bottom: 10px; 
+}
+
+.question-box {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
