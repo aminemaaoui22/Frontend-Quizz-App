@@ -31,19 +31,13 @@
   /* Answers Button */
 
 .myButton {
-	/* background: rgb(236,236,236);
-    background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgba(148,187,233,1) 100%); */
 	border-color: #2196F3;
     color: dodgerblue;
     border-radius:5px;
-	/* display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold; */
 	padding:11px 23px;
     max-width: 30%;
     margin: auto;
+    margin-top: 10px;
 }
  .myButton:hover {
 	background: #2196F3;
@@ -73,10 +67,69 @@
     font-size: 20px; 
     font-family: 'Signika', sans-serif; 
     padding-bottom: 10px; 
+    text-align: center;
 }
 
 .question-box {
     max-width: 80%;
     margin: auto;
     margin-top: 5%;
+}
+
+/* Yes and No buttons */
+
+.success {
+    border-color: #04AA6D;
+    color: green;
+    border-radius:5px;
+	padding:11px 23px;
+    max-width: 30%;
+    margin: auto;
+  }
+  
+  .success:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .danger {
+    border-color: #f44336;
+    color: red;
+    border-radius:5px;
+	padding:11px 23px;
+    max-width: 30%;
+    margin: auto;
+  }
+  
+  .danger:hover {
+    background: #f44336;
+    color: white;
+  }
+
+/* Whithout choice Form & Button */
+
+.example-form {
+  min-width: 30%;
+  max-width: 50%;
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+
+.example-full-width {
+  width: 100%;
+  padding: 23px 30px;
+}
+
+.myButton2 {
+	border-color: #2196F3;
+    color: dodgerblue;
+    border-radius:5px;
+    height: 50%;
+    margin-top: 6%;
+    padding: 10px 20px;
+}
+ .myButton2:hover {
+	background: #2196F3;
+    color: white;
 }

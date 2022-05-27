@@ -1,84 +1,124 @@
 <div *ngIf="question">
-
-    <!-- Time tab -->
-    <div class=" container d-flex justify-content-center">
-        <mat-card class="example-card text-center">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Temps écoulé</mat-card-title>
-              <mat-card-subtitle>{{question.currentTime}}s / {{question.initialTime}}s</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p class="announcement">
-                    Vous pouvez voir dans la barre latérale droite votre rang ainsi que le nombre de questions restantes
-              </p>
-              <br>
-            </mat-card-content>
-            <!-- <mat-card-actions>
+  <!-- Time tab -->
+  <div class=" container d-flex justify-content-center">
+    <mat-card class="example-card text-center">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Temps écoulé</mat-card-title>
+        <mat-card-subtitle>{{question.currentTime}}s / {{question.initialTime}}s</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="announcement">
+          Vous pouvez voir dans la barre latérale droite votre rang ainsi que le nombre de questions restantes
+        </p>
+        <br>
+      </mat-card-content>
+      <!-- <mat-card-actions>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
             </mat-card-actions> -->
-          </mat-card>
-    </div>
+    </mat-card>
+  </div>
 
-    <br>
-    <!-- Questions & stats -->
+  <br>
+  <!-- Questions & stats -->
 
-    <div class="row">
+  <!-- With Choices -->
 
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-12 question-box">
-                    <p class="date">Question {{counter}}</p>
-                    <p class="qst">
-                        Lorem ipsum dolor sit amet. Qui quam quisquam et ullam quis qui velit 
-                        sint sed dolores voluptas et maiores consequatur sed fuga impedit non harum velit.
-                    </p>
-                </div>
-            </div>
-            <div class="row" >
-                <!-- <button class="myButton col-md-4">Choix1</button>
+  <div class="row">
+
+    <div class="col-md-10" *ngIf="whithChoices">
+      <div class="row">
+        <div class="col-md-12 question-box">
+          <p class="date">Question {{counter}}</p>
+          <p class="qst">
+            <b>{{question.question}}</b>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <button class="myButton col-md-4">Choix1</button>
                 <button class="myButton col-md-4">Choix2</button>
                 <button class="myButton col-md-4">Choix3</button> -->
-                <button class="btn myButton col-md-4">Primary</button>
-                <button class="btn myButton col-md-4">Primary</button>
-                <button class="btn myButton col-md-4">Primary</button>
-            </div>
-            
-        </div>
-        <!-- Right card fo live stats -->
-        <div class="col-md-2">
-            <mat-card class="example-card-stats text-center">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image-stats"></div>
-                  <mat-card-title>Vos statistiques</mat-card-title>
-                </mat-card-header>
-                <mat-card-content style="margin-top: 2%;">
-                  <p>
-                    <b>Questions restantes</b> <br>
-                    {{question.remainingQuestionsNumber}} / {{question.questionsNumber}}<br>  
-                  </p>
-                  <mat-progress-bar mode="buffer"></mat-progress-bar>
-                  <br>
-                  <table>
-                      <tr>
-                        <th>Joueur</th>
-                        <th>Score</th>
-                      </tr>
-                      <tr *ngFor="let p of question.players">
-                          <td>nom</td>
-                          <td>{{p.score}}</td>
-                      </tr>
-                  </table>
-                  
-                </mat-card-content>
-              </mat-card>
-        </div>
+        
+        <button class="btn myButton col-md-4" *ngFor="let c of question.choices">{{c}}</button>
+      </div>
     </div>
-    
 
 
-    <!-- {{question.question}} <br>
+    <!-- Yes Or No -->
+    <div class="col-md-10" *ngIf="yesNo">
+      <div class="row">
+        <div class="col-md-12 question-box">
+          <p class="date">Question {{counter}}</p>
+          <p class="qst">
+            <b>{{question.question}}</b>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn success col-md-4">Yes</button>
+        <button class="btn danger col-md-4">No</button>
+      </div>
+    </div>
+
+    <!-- Without Choices -->
+
+    <div class="col-md-10" *ngIf="withoutChoice">
+      <div class="row">
+        <div class="col-md-12 question-box">
+          <p class="date">Question {{counter}}</p>
+          <p class="qst">
+            <b>{{question.question}}</b>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <form class="example-form col-md-10">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Votre Réponse</mat-label>
+            <input matInput #message maxlength="256" placeholder="Tapez votre réponse...">
+            <mat-hint align="start"><strong>Réfléchissez bien avant d'écrire</strong> </mat-hint>
+            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+          </mat-form-field>
+          <button class="btn myButton2 float-right">Valider</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right card fo live stats -->
+    <div class="col-md-2">
+      <mat-card class="example-card-stats text-center">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image-stats"></div>
+          <mat-card-title>Vos statistiques</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="margin-top: 2%;">
+          <p>
+            <b>Questions restantes</b> <br>
+            {{question.remainingQuestionsNumber}} / {{question.questionsNumber}}<br>
+          </p>
+          <mat-progress-bar mode="buffer"></mat-progress-bar>
+          <br>
+          <table>
+            <tr>
+              <th>Joueur</th>
+              <th>Score</th>
+            </tr>
+            <tr *ngFor="let p of question.players">
+              <td>nom</td>
+              <td>{{p.score}}</td>
+            </tr>
+          </table>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+  <!-- {{question.question}} <br>
 {{question.type}} <br>
 {{question.currentTime}} <br>
 {{question.initialTime}} <br>

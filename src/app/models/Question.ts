@@ -1,21 +1,21 @@
 export interface Question {
     question: string;
-    currentTime: number;
-    initialTime: number;
-    remainingQuestionsNumber: number;
-    questionsNumber: number;
+    currentTime: Number;
+    initialTime: Number;
+    remainingQuestionsNumber: Number;
+    questionsNumber: Number;
     type: string;
     isActive: boolean;
     choices: string[];
     players:{
         id: string;
-        score: number;
+        score: Number;
         responses: string[]
     }[];
     ladder: {
         elements: {
             playerId: string,
-            score: number
+            score: Number
         }[]
     }
 }

@@ -115,3 +115,19 @@
           fill: white;
       }
   }
+
+
+
+
+  .myButton {
+	border-color: #2196F3;
+    color: dodgerblue;
+    border-radius:5px;
+	padding:11px 23px;
+    max-width: 30%;
+    margin: auto;
+}
+ .myButton:hover {
+	background: #2196F3;
+    color: white;
+}
