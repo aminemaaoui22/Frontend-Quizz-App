@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../models/Question';
 import { QuestionSocketService } from '../services/question-socket.service';
+import { QuestionsService } from '../services/questions.service';
 import { WebSocketService } from '../services/web-socket.service';
 
 @Component({
@@ -21,11 +22,15 @@ export class QuestionsComponent implements OnInit {
   yesNo: boolean = false;
   withoutChoice: boolean = true;
 
+  current_score: Number = 0;
+
+
 
 
   constructor(
     private questionSocketService: QuestionSocketService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private questionsService: QuestionsService
   ) {
      const idGameToJoin = this.route.snapshot.queryParams['GameToJoin'];
        questionSocketService.question?.subscribe((qst) => {
@@ -54,6 +59,17 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  checkAnswer(c: string) {
+    console.log("check " + c);
+    this.questionsService.checkAnswer(c).subscribe(
+      {
+        next: (data) => {
+          this.current_score = data.gain
+        }
+      }
+    )
   }
 
 }

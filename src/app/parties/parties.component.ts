@@ -41,7 +41,9 @@ export class PartiesComponent implements OnInit {
           {
             next: (res) => {
               setURL(id);
-              this.router.navigate(['/questions'], {queryParams:{GameToJoin: id}})
+              // Register to the game
+              this.gamesService.registerToGame(id);
+              this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
               console.log("join game " + id)
             },
             error: (err) => {
@@ -97,7 +99,7 @@ export class PartiesComponent implements OnInit {
         if (!theme || !joueurs_max) {
           Swal.showValidationMessage(`Tous les champs sont obligatoires`)
         }
-        return {theme: theme, type: room, joueurs_max: joueurs_max, WithRegister: WithRegister }
+        return { theme: theme, type: room, joueurs_max: joueurs_max, WithRegister: WithRegister }
       }
     }).then((result) => {
       if (result.value) {
@@ -120,7 +122,9 @@ export class PartiesComponent implements OnInit {
       this.gamesService.createGame(WithRegister, nom!, joueurs_max, type).subscribe({
         next: (res) => {
           this.getAllGames();
-          console.log("created");
+          if (WithRegister) {
+            this.handleJoin(res.gameId);
+          }
         },
         error: (err) => {
           this.toastr.error('Une erreur est survenue!', 'Erreur!');

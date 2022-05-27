@@ -41,7 +41,7 @@
                 <button class="myButton col-md-4">Choix2</button>
                 <button class="myButton col-md-4">Choix3</button> -->
         
-        <button class="btn myButton col-md-4" *ngFor="let c of question.choices">{{c}}</button>
+        <button class="btn myButton col-md-4" *ngFor="let c of question.choices" (click)="checkAnswer(c)">{{c}}</button>
       </div>
     </div>
 
@@ -57,8 +57,8 @@
         </div>
       </div>
       <div class="row">
-        <button class="btn success col-md-4">Yes</button>
-        <button class="btn danger col-md-4">No</button>
+        <button class="btn success col-md-4" (click)="checkAnswer('yes')">Yes</button>
+        <button class="btn danger col-md-4" (click)="checkAnswer('no')">No</button>
       </div>
     </div>
 
@@ -77,7 +77,7 @@
         <form class="example-form col-md-10">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Votre Réponse</mat-label>
-            <input matInput #message maxlength="256" placeholder="Tapez votre réponse...">
+            <input matInput #message maxlength="256" placeholder="Tapez votre réponse..." name="reponse" (click)="checkAnswer(message.value)">
             <mat-hint align="start"><strong>Réfléchissez bien avant d'écrire</strong> </mat-hint>
             <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
           </mat-form-field>
@@ -97,6 +97,10 @@
           <p>
             <b>Questions restantes</b> <br>
             {{question.remainingQuestionsNumber}} / {{question.questionsNumber}}<br>
+          </p> <br>
+          <p>
+            <b>Score actuel</b> <br>
+            {{current_score}}<br>
           </p>
           <mat-progress-bar mode="buffer"></mat-progress-bar>
           <br>
