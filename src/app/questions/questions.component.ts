@@ -14,7 +14,7 @@ export class QuestionsComponent implements OnInit {
 
   question?: Question;
 
-  counter?: Number;
+  counter?: number;
 
   idGameToJoin!: string;
 
@@ -22,7 +22,7 @@ export class QuestionsComponent implements OnInit {
   yesNo: boolean = false;
   withoutChoice: boolean = true;
 
-  current_score: Number = 0;
+  current_score: number = 0;
 
 
 
@@ -66,7 +66,7 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.checkAnswer(c).subscribe(
       {
         next: (data) => {
-          this.current_score = data.gain
+          this.current_score += data.gain
         }
       }
     )
