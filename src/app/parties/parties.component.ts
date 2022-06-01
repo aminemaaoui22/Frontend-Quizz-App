@@ -40,7 +40,6 @@ export class PartiesComponent implements OnInit {
         this.gamesService.getOneGame(id).subscribe(
           {
             next: (res) => {
-              setURL(id);
               // Register to the game
               //this.gamesService.registerToGame(id);
               //this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
@@ -48,21 +47,26 @@ export class PartiesComponent implements OnInit {
 
               // Register to the game
               this.gamesService.registerToGame(id).subscribe({
-                next: (res) => {
-                  this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
+                next: async (res) => {
+                  setURL(id);
+                  await this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
                   console.log("join game " + id)
+                  console.log("resigster res : " + res)
+                },
+                error: (err) => {
+                  console.log("error");
+                  console.error(err);
                 }
               })
             },
             error: (err) => {
               console.log("error");
-              console.log(err);
+              console.error(err);
             }
           }
         )
       }
     )
-    console.log("rejoindre id " + id);
   }
 
   addGamePopup() {
@@ -128,11 +132,12 @@ export class PartiesComponent implements OnInit {
     } else {
       let nom = sessionStorage.getItem("username");
       this.gamesService.createGame(WithRegister, nom!, joueurs_max, type).subscribe({
-        next: (res) => {
-          this.getAllGames();
+        next: async (res) =>  {
           if (WithRegister === "true") {
             //this.handleJoin(res.gameId);
-            this.router.navigate(['/questions'], { queryParams: { GameToJoin: res.gameId } })
+            await this.router.navigate(['/questions'], { queryParams: { GameToJoin: res.gameId } })
+            
+            this.getAllGames();
           }
         },
         error: (err) => {
