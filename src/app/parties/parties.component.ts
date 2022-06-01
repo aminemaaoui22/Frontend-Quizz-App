@@ -45,6 +45,14 @@ export class PartiesComponent implements OnInit {
               this.gamesService.registerToGame(id);
               this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
               console.log("join game " + id)
+
+              // Register to the game
+              this.gamesService.registerToGame(id).subscribe({
+                next: (res) => {
+                  this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
+                  console.log("join game " + id)
+                }
+              })
             },
             error: (err) => {
               console.log("error");
