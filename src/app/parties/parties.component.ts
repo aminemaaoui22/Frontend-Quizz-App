@@ -131,7 +131,8 @@ export class PartiesComponent implements OnInit {
         next: (res) => {
           this.getAllGames();
           if (WithRegister === "true") {
-            this.handleJoin(res.gameId);
+            //this.handleJoin(res.gameId);
+            this.router.navigate(['/questions'], { queryParams: { GameToJoin: res.gameId } })
           }
         },
         error: (err) => {
