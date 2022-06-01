@@ -42,9 +42,9 @@ export class PartiesComponent implements OnInit {
             next: (res) => {
               setURL(id);
               // Register to the game
-              this.gamesService.registerToGame(id);
-              this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
-              console.log("join game " + id)
+              //this.gamesService.registerToGame(id);
+              //this.router.navigate(['/questions'], { queryParams: { GameToJoin: id } })
+              //console.log("join game " + id)
 
               // Register to the game
               this.gamesService.registerToGame(id).subscribe({
