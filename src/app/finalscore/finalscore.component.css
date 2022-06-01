@@ -1,0 +1,18 @@
+   
+   h1 {
+    font-family:Georgia,serif;
+    color:#666666;
+    font-size:30px;
+    line-height:1em;
+    margin:10% 0 0 60px;
+    }
+   
+   h1 strong{
+    color:#A80C1E;
+    display:block;
+    font-size:85px;
+    font-weight:normal;
+    letter-spacing:-3.5px;
+    line-height:1em;
+    align-items: center;
+    }

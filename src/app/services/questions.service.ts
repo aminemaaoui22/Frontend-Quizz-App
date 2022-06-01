@@ -14,6 +14,6 @@ export class QuestionsService {
   ) { }
 
   checkAnswer(val: string): Observable<QuestionAnswer> {
-    return this.http.get<QuestionAnswer>(`${API_URL}/quizz/answer?value=${val}`, {withCredentials : true});
+    return this.http.get<QuestionAnswer>(`${API_URL}/quizz/answer?value=${val}`);
   }
 }

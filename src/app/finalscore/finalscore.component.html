@@ -1,0 +1,32 @@
+<div class="container">
+    <h1><strong>La partie est terminée</strong></h1>
+    <br>
+    <div class="card">
+        <div class="card-header">
+        <h3 class="card-title">Le classement final</h3>
+        </div>
+        
+        <div class="card-body p-0">
+        <table class="table table-striped">
+        <thead>
+        <tr>
+        <th>Nom du joueur</th>
+        <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr *ngFor="let c of classement; let index = index">
+        <td>{{index}}.</td>
+        <td>{{c.playerId}}</td>
+        <td><span class="badge bg-danger">{{c.score}}</span></td>
+        </tr>
+        
+        
+        </tbody>
+        </table>
+        </div>
+        
+        </div>
+        
+    </div>

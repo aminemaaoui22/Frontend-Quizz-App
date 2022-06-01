@@ -122,7 +122,7 @@ export class PartiesComponent implements OnInit {
       this.gamesService.createGame(WithRegister, nom!, joueurs_max, type).subscribe({
         next: (res) => {
           this.getAllGames();
-          if (WithRegister) {
+          if (WithRegister === "true") {
             this.handleJoin(res.gameId);
           }
         },

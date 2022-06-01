@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FinalscoreComponent } from './finalscore/finalscore.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { PartiesComponent } from './parties/parties.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'inscription', component: SignupComponent},
   {path:'nav', component: NavComponent},
   {path:'parties', component: PartiesComponent},
-  {path:'questions', component: QuestionsComponent}
+  {path:'questions', component: QuestionsComponent},
+  {path:'fin', component: FinalscoreComponent}
 ];
 
 @NgModule({

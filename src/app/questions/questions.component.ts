@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../models/Question';
 import { QuestionSocketService } from '../services/question-socket.service';
 import { QuestionsService } from '../services/questions.service';
@@ -30,7 +30,8 @@ export class QuestionsComponent implements OnInit {
   constructor(
     private questionSocketService: QuestionSocketService,
     private route: ActivatedRoute,
-    private questionsService: QuestionsService
+    private questionsService: QuestionsService,
+    private router: Router
   ) {
      const idGameToJoin = this.route.snapshot.queryParams['GameToJoin'];
        questionSocketService.question?.subscribe((qst) => {
@@ -66,7 +67,11 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.checkAnswer(c).subscribe(
       {
         next: (data) => {
-          this.current_score = data.gain
+          this.current_score = this.current_score.valueOf() + data.gain.valueOf()
+          if (!this.question?.isActive) {
+            console.log("aaaaaaaaaaactiveeeee " + !this.question?.isActive)
+            this.router.navigate(['/fin'], { queryParams: { classement: this.question?.ladder } })
+          }
         }
       }
     )

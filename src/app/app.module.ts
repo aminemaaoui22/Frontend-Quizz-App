@@ -16,6 +16,7 @@ import { NewPartieComponent } from './new-partie/new-partie.component';
 import { ToastrModule } from 'ngx-toastr';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionsSocketComponent } from './questions-socket/questions-socket.component';
+import { FinalscoreComponent } from './finalscore/finalscore.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { QuestionsSocketComponent } from './questions-socket/questions-socket.co
     PartiesComponent,
     NewPartieComponent,
     QuestionsComponent,
-    QuestionsSocketComponent
+    QuestionsSocketComponent,
+    FinalscoreComponent
   ],
   imports: [
     BrowserModule,
