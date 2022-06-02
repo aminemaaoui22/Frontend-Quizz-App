@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Ladder } from '../models/Question';
 
 @Component({
   selector: 'app-finalscore',
@@ -10,8 +12,12 @@ export class FinalscoreComponent implements OnInit {
 
   classement!: any[];
 
+  subscription?: Subscription;
+ 
+  ladder!: Ladder;
+  
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -19,7 +25,9 @@ export class FinalscoreComponent implements OnInit {
   }
 
   getLadderInfos() {
-    this.classement = this.route.snapshot.queryParams["classement"];
+    this.classement = JSON.parse( this.route.snapshot.queryParams["classement"] ).elements;
+    console.log(this.classement)
   }
+
 
 }

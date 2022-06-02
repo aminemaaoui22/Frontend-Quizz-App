@@ -10,6 +10,7 @@
         <table class="table table-striped">
         <thead>
         <tr>
+        <th>Rang</th>
         <th>Nom du joueur</th>
         <th>Score</th>
         </tr>
@@ -17,7 +18,7 @@
         <tbody>
         
         <tr *ngFor="let c of classement; let index = index">
-        <td>{{index}}.</td>
+        <td>{{index+1}}.</td>
         <td>{{c.playerId}}</td>
         <td><span class="badge bg-danger">{{c.score}}</span></td>
         </tr>

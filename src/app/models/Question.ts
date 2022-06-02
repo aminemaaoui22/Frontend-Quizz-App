@@ -12,10 +12,13 @@ export interface Question {
         score: Number;
         responses: string[]
     }[];
-    ladder: {
-        elements: {
-            playerId: string,
-            score: Number
-        }[]
-    }
+    ladder: Ladder
+}
+
+export interface Ladder {
+    elements:LadderElement[];
+}
+export interface LadderElement {
+    playerId: string;
+    score: Number;
 }
